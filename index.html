@@ -8,18 +8,16 @@
     :root{
       --bg0:#18051f;
       --bg1:#4a0f3e;
-      --card: rgba(255,255,255,.08);
-      --text: rgba(255,255,255,.92);
+      --text: rgba(255,255,255,.94);
       --muted: rgba(255,255,255,.72);
       --border: rgba(255,255,255,.14);
       --accent:#d8b4fe;
       --accent2:#f472b6;
       --shadow: 0 20px 60px rgba(0,0,0,.45);
       --radius: 18px;
-      --radius2: 26px;
-      --max: 1100px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      --radius2: 24px;
+      --max: 1120px;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     }
 
     *{ box-sizing:border-box; }
@@ -30,15 +28,12 @@
       font-family: var(--sans);
       color: var(--text);
       background:
-        radial-gradient(1000px 600px at 10% 10%, rgba(216,180,254,.24), transparent 60%),
+        radial-gradient(1000px 600px at 10% 10%, rgba(216,180,254,.22), transparent 60%),
         radial-gradient(900px 600px at 90% 20%, rgba(244,114,182,.18), transparent 60%),
         radial-gradient(1000px 800px at 50% 110%, rgba(255,99,71,.12), transparent 60%),
         linear-gradient(135deg, var(--bg0), var(--bg1));
       overflow-x:hidden;
     }
-
-    a{ color: var(--accent); text-decoration:none; }
-    a:hover{ text-decoration:underline; }
 
     .wrap{
       max-width: var(--max);
@@ -48,7 +43,7 @@
 
     .top{
       display:flex;
-      gap:16px;
+      gap:18px;
       align-items:center;
       justify-content:space-between;
       padding: 18px;
@@ -61,54 +56,38 @@
 
     .brand{
       display:flex;
-      gap:14px;
+      gap:16px;
       align-items:center;
       min-width: 0;
     }
 
-    .logo{
-      width:56px;
-      height:56px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background:
-        radial-gradient(circle at 30% 30%, rgba(216,180,254,.7), transparent 55%),
-        radial-gradient(circle at 70% 70%, rgba(244,114,182,.55), transparent 55%),
-        rgba(255,255,255,.06);
-      display:grid;
-      place-items:center;
+    .logoImage{
+      width:76px;
+      height:76px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.18);
+      object-fit:cover;
+      background: rgba(255,255,255,.06);
       flex: 0 0 auto;
-      overflow:hidden;
     }
 
-    .logo span{
-      font-family: var(--mono);
-      font-weight:700;
-      letter-spacing:.02em;
-      opacity:.95;
-      font-size:12px;
-      text-align:center;
-      line-height:1.1;
+    .title{
+      min-width:0;
     }
-
-    .title{ min-width:0; }
 
     .title h1{
       margin:0;
-      font-size: 20px;
-      line-height:1.2;
-      letter-spacing: .02em;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      font-size: 24px;
+      line-height:1.15;
+      letter-spacing:.02em;
     }
 
     .title p{
-      margin:6px 0 0;
+      margin:8px 0 0;
       color: var(--muted);
-      font-size: 13px;
-      line-height:1.4;
-      max-width: 680px;
+      font-size: 14px;
+      line-height:1.45;
+      max-width: 720px;
     }
 
     .actions{
@@ -128,12 +107,9 @@
       cursor:pointer;
       font-weight:600;
       font-size: 13px;
-      transition: transform .08s ease, background .2s ease, border-color .2s ease;
-      user-select:none;
     }
 
     .btn:hover{ background: rgba(255,255,255,.10); }
-    .btn:active{ transform: translateY(1px); }
 
     .btn.primary{
       border-color: rgba(216,180,254,.45);
@@ -155,7 +131,6 @@
       font-size: 13px;
       color: var(--muted);
       cursor:pointer;
-      transition: background .2s ease, color .2s ease, border-color .2s ease;
       display:flex;
       gap:8px;
       align-items:center;
@@ -164,7 +139,7 @@
     .tab .dot{
       width:9px;
       height:9px;
-      border-radius: 50%;
+      border-radius:50%;
       background: rgba(255,255,255,.30);
     }
 
@@ -190,7 +165,6 @@
     @media (max-width: 900px){
       .grid{ grid-template-columns: 1fr; }
       .actions{ justify-content:flex-start; }
-      .title p{ max-width: unset; }
     }
 
     .card{
@@ -214,11 +188,10 @@
     .cardHead h2{
       margin:0;
       font-size: 15px;
-      letter-spacing: .02em;
+      letter-spacing:.02em;
     }
 
     .chip{
-      font-family: var(--mono);
       font-size: 11px;
       color: rgba(255,255,255,.75);
       border: 1px solid rgba(255,255,255,.14);
@@ -253,78 +226,87 @@
       resize: vertical;
     }
 
-    input::placeholder, textarea::placeholder{
-      color: rgba(255,255,255,.35);
-    }
-
     .row{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    @media (max-width: 700px){
-      .row{ grid-template-columns:1fr; }
-    }
-
-    .members{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    .member{
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      border-radius: var(--radius);
-      padding: 12px;
-    }
-
-    .memberTop{
-      display:flex;
       gap:12px;
-      align-items:center;
-    }
-
-    .avatar{
-      width:44px;
-      height:44px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background:
-        radial-gradient(circle at 30% 30%, rgba(216,180,254,.55), transparent 60%),
-        radial-gradient(circle at 70% 70%, rgba(244,114,182,.35), transparent 60%),
-        rgba(255,255,255,.06);
-      flex: 0 0 auto;
-    }
-
-    .memberTop h3{
-      margin:0;
-      font-size: 14px;
-    }
-
-    .memberTop p{
-      margin:4px 0 0;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .miniRow{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 10px;
     }
 
     @media (max-width:700px){
-      .miniRow{ grid-template-columns:1fr; }
+      .row{ grid-template-columns:1fr; }
     }
 
     .small{
       font-size: 12px;
       color: var(--muted);
-      line-height:1.4;
+      line-height:1.45;
       margin: 8px 0 0;
+    }
+
+    .hide{ display:none; }
+
+    #tab-song .card:first-child{
+      background:
+        linear-gradient(rgba(38, 8, 45, 0.72), rgba(38, 8, 45, 0.78)),
+        url("OIP.jpg") center/cover no-repeat;
+    }
+
+    .memberCard{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius: 18px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .memberHeader{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+    }
+
+    .memberHeader h3{
+      margin:0;
+      font-size: 18px;
+    }
+
+    .memberSub{
+      color: var(--muted);
+      font-size: 13px;
+      margin-top:4px;
+    }
+
+    .memberInstrument{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 220px 1fr;
+      gap:16px;
+      align-items:start;
+    }
+
+    @media (max-width:700px){
+      .memberInstrument{ grid-template-columns:1fr; }
+    }
+
+    .instrumentImg{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.2);
+    }
+
+    .featureImage{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.2);
+      margin-top: 10px;
     }
 
     .footerNote{
@@ -333,61 +315,16 @@
       font-size: 12px;
       text-align:center;
     }
-
-    .hide{ display:none; }
-
-    /* SONG TAB BACKGROUND IMAGE */
-    #tab-song .card:first-child{
-      background:
-        linear-gradient(rgba(38, 8, 45, 0.72), rgba(38, 8, 45, 0.78)),
-        url("OIP.jpg") center/cover no-repeat;
-    }
-
-    /* PICTURES TAB */
-    .pictureGrid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:16px;
-    }
-
-    @media (max-width: 700px){
-      .pictureGrid{ grid-template-columns:1fr; }
-    }
-
-    .pictureBox{
-      border:1px solid rgba(255,255,255,.14);
-      border-radius: 18px;
-      overflow:hidden;
-      background: rgba(255,255,255,.05);
-    }
-
-    .pictureBox img{
-      width:100%;
-      height:260px;
-      object-fit:cover;
-      display:block;
-      background: rgba(0,0,0,.2);
-    }
-
-    .pictureCaption{
-      padding:10px 12px 14px;
-    }
-
-    .pictureCaption input{
-      margin-top:8px;
-    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header class="top">
       <div class="brand">
-        <div class="logo" title="Mugunghwa-inspired logo">
-          <span>IView<br>Profein</span>
-        </div>
+        <img src="logo.jpg" alt="IViewProfein logo" class="logoImage">
         <div class="title">
-          <h1 id="groupNameDisplay">IViewProfein</h1>
-          <p id="conceptDisplay">
+          <h1>IViewProfein</h1>
+          <p>
             A demon-hunting girl group inspired by ibuprofen, using music and performance to reduce human stress and fight pressure, inequality, and emotional pain.
           </p>
         </div>
@@ -406,7 +343,6 @@
       <button class="tab" data-tab="tab-story"><span class="dot"></span>Story / Mission</button>
       <button class="tab" data-tab="tab-song"><span class="dot"></span>Song / MV</button>
       <button class="tab" data-tab="tab-visuals"><span class="dot"></span>Visual Aesthetic</button>
-      <button class="tab" data-tab="tab-pictures"><span class="dot"></span>Pictures</button>
     </nav>
 
     <section id="tab-overview" class="grid">
@@ -422,34 +358,31 @@
           <div class="row">
             <div>
               <label>Logo idea</label>
-              <textarea id="logoIdea">A Mugunghwa flower logo mixed with a modern idol emblem, showing healing, hope, and resilience.</textarea>
+              <textarea id="logoIdea">A Mugunghwa flower logo placed beside the group name, symbolizing healing, hope, endurance, and emotional recovery.</textarea>
             </div>
             <div>
               <label>Concept keywords</label>
-              <textarea id="conceptKeywords">healing, stress relief, social pressure, hip-hop, Mugunghwa, summer energy, demon hunters</textarea>
+              <textarea id="conceptKeywords">healing, stress relief, social pressure, Mugunghwa, summer freshness, hip-hop, demon hunters, emotional recovery</textarea>
             </div>
           </div>
 
           <label>One-sentence pitch</label>
-          <textarea id="conceptPitch">IViewProfein is a demon-hunting girl group inspired by ibuprofen, symbolizing healing and stress relief while fighting supernatural forces born from pressure, inequality, and emotional pain.</textarea>
+          <textarea id="conceptPitch">IViewProfein is a healing-themed demon-hunting girl group that protects people by fighting stress-born creatures and social pressure through music, symbolism, and performance.</textarea>
 
           <p class="small">
-            The name comes from ibuprofen, a medicine that helps reduce pain. In our concept, the group acts like a cure for human stress.
+            Put your logo file in the same folder and name it <strong>logo.jpg</strong>.
           </p>
         </div>
       </div>
 
       <aside class="card">
         <div class="cardHead">
-          <h2>Quick Checklist</h2>
-          <span class="chip">Portfolio</span>
+          <h2>Quick Notes</h2>
+          <span class="chip">Info</span>
         </div>
         <div class="cardBody">
           <div class="small">
-            Main idea: a healing girl group that battles stress demons and social pressure through music, symbolism, and supernatural power.
-          </div>
-          <div class="small">
-            Logo symbol: Mugunghwa. Main myth creature: Imugi. Song concept: bright, summery, refreshing hip-hop.
+            Main myth creature: Imugi. Logo symbol: Mugunghwa. Main song: Watermelon Soju Hwachae.
           </div>
         </div>
       </aside>
@@ -458,27 +391,116 @@
     <section id="tab-members" class="grid hide">
       <div class="card">
         <div class="cardHead">
-          <h2>Member Profiles (2–5)</h2>
+          <h2>Member Profiles</h2>
           <span class="chip">Required</span>
         </div>
         <div class="cardBody">
-          <div class="actions" style="padding:0 0 10px;">
-            <button class="btn" id="addMember">+ Add member</button>
-            <button class="btn" id="removeMember">– Remove last</button>
+
+          <div class="memberCard">
+            <div class="memberHeader">
+              <div>
+                <h3>Ivy</h3>
+                <div class="memberSub">Maknae • Represents Han</div>
+              </div>
+              <div class="chip">Member 1</div>
+            </div>
+
+            <label>Position</label>
+            <input value="Maknae" />
+
+            <label>Member power / role</label>
+            <input value="Breaking pressure-based systems and speaking against academic inequality" />
+
+            <label>Instrument</label>
+            <input value="TBD" />
+
+            <label>Bio</label>
+            <textarea>Ivy represents Han. She carries the pain of extreme academic pressure and believes grades are not everything. She challenges systems that judge people by university name and wants to eliminate unfair pay gaps based on educational background. Her parents kept her at home, so her story is also about breaking control and reclaiming freedom.</textarea>
+
+            <div class="memberInstrument">
+              <img src="ivy-instrument.jpg" alt="Ivy instrument image" class="instrumentImg">
+              <div>
+                <label>Instrument image note</label>
+                <textarea>Put Ivy’s instrument image here. If you decide her instrument later, replace the file named ivy-instrument.jpg with the correct picture.</textarea>
+              </div>
+            </div>
           </div>
-          <div id="members" class="members"></div>
-          <p class="small">You can still edit these later with your team.</p>
+
+          <div class="memberCard">
+            <div class="memberHeader">
+              <div>
+                <h3>Promise</h3>
+                <div class="memberSub">Represents Jeong</div>
+              </div>
+              <div class="chip">Member 2</div>
+            </div>
+
+            <label>Position</label>
+            <input value="Emotional core / supporter" />
+
+            <label>Member power / role</label>
+            <input value="Healing hearts and restoring trust" />
+
+            <label>Instrument</label>
+            <input value="Gayageum" />
+
+            <label>Bio</label>
+            <textarea>Promise represents Jeong. She is the warm heart of the group and helps people feel seen, supported, and emotionally safe. Her power comes from kindness, care, and emotional connection.</textarea>
+
+            <div class="memberInstrument">
+              <img src="promise-instrument.jpg" alt="Promise instrument image" class="instrumentImg">
+              <div>
+                <label>Instrument image note</label>
+                <textarea>Promise’s instrument is the Gayageum. Put the Gayageum image file here as promise-instrument.jpg.</textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="memberCard">
+            <div class="memberHeader">
+              <div>
+                <h3>Member 3</h3>
+                <div class="memberSub">Represents Heung</div>
+              </div>
+              <div class="chip">Member 3</div>
+            </div>
+
+            <label>Position</label>
+            <input value="Ambassador / educator" />
+
+            <label>Member power / role</label>
+            <input value="Education, awareness, supernatural protection" />
+
+            <label>Instrument</label>
+            <input value="Janggu" />
+
+            <label>Bio</label>
+            <textarea>This member represents Heung and acts as the group’s ambassador. She educates others, spreads awareness, and is connected to the Haechi, giving her a supernatural guardian presence and uplifting energy.</textarea>
+
+            <div class="memberInstrument">
+              <img src="heung-instrument.jpg" alt="Member 3 instrument image" class="instrumentImg">
+              <div>
+                <label>Instrument image note</label>
+                <textarea>This member’s instrument is the Janggu. Put the Janggu image file here as heung-instrument.jpg.</textarea>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
       <aside class="card">
         <div class="cardHead">
-          <h2>Member Theme</h2>
-          <span class="chip">Optional</span>
+          <h2>Instrument Notes</h2>
+          <span class="chip">Images</span>
         </div>
         <div class="cardBody">
           <div class="small">
-            Core emotional symbols: <strong>Han</strong>, <strong>Jeong</strong>, and <strong>Heung</strong>. These help connect the members to cultural meaning and emotional depth.
+            Right now the website uses three image files for instruments:
+            <br><br>
+            <strong>ivy-instrument.jpg</strong><br>
+            <strong>promise-instrument.jpg</strong><br>
+            <strong>heung-instrument.jpg</strong>
           </div>
         </div>
       </aside>
@@ -487,42 +509,36 @@
     <section id="tab-creatures" class="grid hide">
       <div class="card">
         <div class="cardHead">
-          <h2>Mythological / Demonic Creatures (Korean Folklore)</h2>
+          <h2>Creature / Myth</h2>
           <span class="chip">Required</span>
         </div>
         <div class="cardBody">
-          <label>Creatures they fight (list)</label>
-          <textarea id="creatureList">Main enemy: Imugi
+          <label>Main creature</label>
+          <input id="finalBoss" value="Imugi" />
 
-In our concept, the Imugi represents unfinished transformation, emotional burden, and stress that grows stronger when people are trapped by pressure and fear.
+          <label>Creature meaning</label>
+          <textarea id="creatureList">In this concept, the Imugi represents emotional burden, blocked growth, and stress that becomes dangerous when people are trapped by pressure, fear, and unfair expectations.</textarea>
 
-The group also fights stress demons created by:
-- academic pressure
-- emotional isolation
-- social inequality
-- unfair expectations placed on young people</textarea>
+          <label>Why this creature fits the group</label>
+          <textarea id="creatureWhy">The Imugi symbolizes transformation that has not been completed, which matches the group’s theme of helping people break out of stress, pressure, and emotional suffering.</textarea>
 
-          <div class="row">
-            <div>
-              <label>Main “final boss” creature</label>
-              <input id="finalBoss" value="Imugi — a giant stress-born creature formed from pressure, fear, and blocked growth." />
-            </div>
-            <div>
-              <label>Why these creatures?</label>
-              <input id="creatureWhy" value="They symbolize how stress and social pressure can become invisible monsters in everyday life." />
-            </div>
-          </div>
+          <label>Creature image</label>
+          <img src="creature.jpg" alt="Creature concept image" class="featureImage">
+
+          <p class="small">
+            Put your creature image in the same folder and name it <strong>creature.jpg</strong>.
+          </p>
         </div>
       </div>
 
       <aside class="card">
         <div class="cardHead">
-          <h2>Folklore Angle</h2>
-          <span class="chip">Meaning</span>
+          <h2>Creature Visual</h2>
+          <span class="chip">Image</span>
         </div>
         <div class="cardBody">
           <div class="small">
-            The Imugi works well because it is a creature connected to struggle, change, and incomplete becoming, which matches the idea of people trapped under stress.
+            If you want, I can generate an Imugi-style creature image next. Then you can save it as <strong>creature.jpg</strong> and use it here.
           </div>
         </div>
       </aside>
@@ -538,11 +554,11 @@ The group also fights stress demons created by:
           <label>Mission statement</label>
           <input id="mission" value="IViewProfein helps people reduce stress by fighting demons created by pressure, fear, and emotional pain." />
 
-          <label>Story outline (short arc)</label>
-          <textarea id="storyArc">The members of IViewProfein were each affected by a different kind of stress and pressure. When they discovered that human stress could awaken demonic forces, they joined together as a special girl group with the power to heal people through music, stage performance, and supernatural energy. Their concerts become battles where they confront stress-born monsters and give people strength to keep going.</textarea>
+          <label>Story outline</label>
+          <textarea id="storyArc">The members of IViewProfein were each affected by different kinds of emotional burden. When they discovered that human stress could awaken demonic forces, they united as a special girl group whose music acts like medicine. Their concerts become healing battles where they weaken monsters and restore emotional balance.</textarea>
 
-          <label>World rules (how demon hunting works)</label>
-          <textarea id="worldRules">Stress and emotional suffering create invisible monsters. IViewProfein can sense these creatures through emotional imbalance in the world around them. Their music acts like medicine, and their stage performances weaken demons, protect people, and restore emotional balance. The stronger the audience’s hope becomes, the stronger the group’s healing power becomes.</textarea>
+          <label>How their power works</label>
+          <textarea id="worldRules">Stress and emotional suffering create invisible creatures. IViewProfein senses them through emotional imbalance and uses music, performance, symbols, and traditional-inspired power to weaken and seal them.</textarea>
         </div>
       </div>
 
@@ -553,7 +569,7 @@ The group also fights stress demons created by:
         </div>
         <div class="cardBody">
           <div class="small">
-            This group is not only about defeating monsters. It is also about helping people survive pressure, reject harmful expectations, and heal from stress.
+            The group is about healing people, reducing stress, and helping them resist harmful social pressure.
           </div>
         </div>
       </aside>
@@ -578,26 +594,15 @@ The group also fights stress demons created by:
           </div>
 
           <label>Theme / message</label>
-          <textarea id="songTheme">This song shows the group’s bright and refreshing side. It represents stress relief, freedom, friendship, and emotional healing. Even though the group fights demons, this track feels like giving people a cool break from pressure and helping them breathe again.</textarea>
+          <textarea id="songTheme">This song shows the group’s bright and refreshing side. It represents release, healing, friendship, and taking a break from emotional pressure.</textarea>
 
-          <label>Stage look (hair/makeup/props/choreo highlights)</label>
-          <textarea id="stageLook">Stage props include soju bottles, Korean drinks, watermelon visuals, sparkling summer details, and flower motifs inspired by the Mugunghwa. The styling should feel bold, playful, colorful, and confident, like a magical summer ad mixed with a hip-hop performance stage.</textarea>
+          <label>Stage look</label>
+          <textarea id="stageLook">The stage uses soju bottles, Korean drinks, summer fruit visuals, Mugunghwa flower details, and a glossy colorful mood inspired by refreshing product-ad style visuals.</textarea>
 
-          <label>MV concept (2–6 bullet scenes)</label>
-          <textarea id="mvConcept">1) A vivid fruit-market fantasy world full of watermelon and sparkling drinks
-2) Bright red and pink sets inspired by refreshing summer product ads
-3) Mugunghwa flower details woven into the styling and sets
-4) The members turn a stress-filled city into a colorful healing space
-5) The final stage becomes a celebration where the stress demon loses power</textarea>
-        </div>
-      </div>
+          <label>MV concept</label>
+          <textarea id="mvConcept">A vivid fruit-themed fantasy world full of sparkling drinks, watermelon, and summer color. The members transform a stress-filled environment into a bright healing space through performance.</textarea>
 
-      <aside class="card">
-        <div class="cardHead">
-          <h2>Hip-hop Verse</h2>
-          <span class="chip">Original</span>
-        </div>
-        <div class="cardBody">
+          <label>Hip-hop verse</label>
           <textarea style="min-height:180px;">Ice in the bowl, yeah, drip too clean
 Watermelon shine with a Seoul city gleam
 Stress too loud, but I kill that noise
@@ -606,7 +611,18 @@ Pink in the cup, got the whole room swayin’
 Sweet but fierce, yeah, you know what we’re sayin’
 Pressure on freeze, let it melt away
 IViewProfein make it better today</textarea>
-          <div class="small">Hook idea: “Sip that stress away, watermelon soju hwachae.”</div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="cardHead">
+          <h2>Background</h2>
+          <span class="chip">Image</span>
+        </div>
+        <div class="cardBody">
+          <div class="small">
+            The Song / MV section uses <strong>OIP.jpg</strong> as its background image. Keep that file in the same folder as index.html.
+          </div>
         </div>
       </aside>
     </section>
@@ -625,101 +641,43 @@ IViewProfein make it better today</textarea>
             </div>
             <div>
               <label>Symbols / motifs</label>
-              <input id="symbols" value="Mugunghwa flower, watermelon slices, soju glasses, sparkling drinks, healing glow" />
+              <input id="symbols" value="Mugunghwa flower, watermelon, soju glasses, healing glow, summer freshness" />
             </div>
           </div>
 
           <label>Costume ideas</label>
-          <textarea id="costumes">Bright summer performance looks with bold hip-hop styling, fruit-inspired colors, floral accessories, and magical details that connect the members to healing and demon-hunting. The costumes should feel playful but powerful.</textarea>
+          <textarea id="costumes">Bright summer performance styling mixed with bold hip-hop details, floral accessories, colorful fabrics, and magical healing motifs.</textarea>
 
           <label>Set design / props</label>
-          <textarea id="props">Soju bottles, Korean summer drinks, watermelon bowls, flower decorations, glowing signs, fruit stands, and vivid red-pink backgrounds inspired by bright commercial-style K-pop visuals.</textarea>
+          <textarea id="props">Fruit-market inspired sets, glossy drink visuals, watermelon bowls, Korean beverages, flower details, and vivid commercial-like backgrounds.</textarea>
 
-          <label>Branding notes (album packaging, lightstick, fandom name)</label>
-          <textarea id="branding">Logo symbol: Mugunghwa. The branding should mix healing, summer freshness, and emotional comfort. A flower-shaped or drink-inspired lightstick could match the concept.</textarea>
+          <label>Branding notes</label>
+          <textarea id="branding">The Mugunghwa logo should represent endurance, comfort, and healing. The overall branding should feel refreshing, bold, and emotionally supportive.</textarea>
         </div>
       </div>
 
       <aside class="card">
         <div class="cardHead">
-          <h2>Background Direction</h2>
-          <span class="chip">Mood</span>
+          <h2>Image Files Used</h2>
+          <span class="chip">Files</span>
         </div>
         <div class="cardBody">
           <div class="small">
-            Use vivid, glossy, fruit-ad style backgrounds with rich reds and pinks, then balance them with purple accents so the site still matches your main theme.
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <section id="tab-pictures" class="grid hide">
-      <div class="card">
-        <div class="cardHead">
-          <h2>Picture Area</h2>
-          <span class="chip">Images</span>
-        </div>
-        <div class="cardBody">
-          <div class="pictureGrid">
-            <div class="pictureBox">
-              <img src="OIP.jpg" alt="Concept image 1">
-              <div class="pictureCaption">
-                <label>Picture 1 caption</label>
-                <input value="Song / MV inspiration background" />
-              </div>
-            </div>
-
-            <div class="pictureBox">
-              <img src="OIP.jpg" alt="Concept image 2">
-              <div class="pictureCaption">
-                <label>Picture 2 caption</label>
-                <input value="Summer fruit and drink visual mood" />
-              </div>
-            </div>
-
-            <div class="pictureBox">
-              <img src="OIP.jpg" alt="Concept image 3">
-              <div class="pictureCaption">
-                <label>Picture 3 caption</label>
-                <input value="Possible stage color inspiration" />
-              </div>
-            </div>
-
-            <div class="pictureBox">
-              <img src="OIP.jpg" alt="Concept image 4">
-              <div class="pictureCaption">
-                <label>Picture 4 caption</label>
-                <input value="Refreshing commercial-style K-pop concept" />
-              </div>
-            </div>
-          </div>
-
-          <p class="small">
-            To use your own pictures, put image files in the same folder as index.html, then change each image name in the code, for example: <strong>poster.jpg</strong> or <strong>moodboard.png</strong>.
-          </p>
-        </div>
-      </div>
-
-      <aside class="card">
-        <div class="cardHead">
-          <h2>How to Add Pictures</h2>
-          <span class="chip">Tip</span>
-        </div>
-        <div class="cardBody">
-          <div class="small">
-            Right now all four boxes use <strong>OIP.jpg</strong>. Later, you can replace each one with different files like:
+            This website currently expects these files in the same folder:
             <br><br>
-            <strong>img src="photo1.jpg"</strong><br>
-            <strong>img src="photo2.jpg"</strong><br>
-            <strong>img src="photo3.jpg"</strong><br>
-            <strong>img src="photo4.jpg"</strong>
+            <strong>logo.jpg</strong><br>
+            <strong>creature.jpg</strong><br>
+            <strong>OIP.jpg</strong><br>
+            <strong>ivy-instrument.jpg</strong><br>
+            <strong>promise-instrument.jpg</strong><br>
+            <strong>heung-instrument.jpg</strong>
           </div>
         </div>
       </aside>
     </section>
 
     <div class="footerNote">
-      IViewProfein portfolio template • Save uses your browser • Edit anything directly in BBEdit anytime
+      IViewProfein portfolio template • Edit in BBEdit • Keep all image files in the same folder as index.html
     </div>
   </div>
 
@@ -731,8 +689,7 @@ IViewProfein make it better today</textarea>
       "tab-creatures",
       "tab-story",
       "tab-song",
-      "tab-visuals",
-      "tab-pictures"
+      "tab-visuals"
     ].map(id => document.getElementById(id));
 
     tabButtons.forEach(btn => {
@@ -745,254 +702,62 @@ IViewProfein make it better today</textarea>
       });
     });
 
-    const membersWrap = document.getElementById("members");
-    const addMemberBtn = document.getElementById("addMember");
-    const removeMemberBtn = document.getElementById("removeMember");
-    let memberCount = 0;
-
-    function memberTemplate(i){
-      return `
-        <div class="member" data-member="${i}">
-          <div class="memberTop">
-            <div class="avatar" aria-hidden="true"></div>
-            <div>
-              <h3>Member ${i+1}</h3>
-              <p>Stage name • Position • Member power / role</p>
-            </div>
-          </div>
-
-          <div class="miniRow">
-            <div>
-              <label>Stage name</label>
-              <input data-k="members.${i}.stageName" placeholder="leave blank if undecided" />
-            </div>
-            <div>
-              <label>Position</label>
-              <input data-k="members.${i}.position" placeholder="leader / vocalist / rapper / dancer" />
-            </div>
-          </div>
-
-          <div class="miniRow">
-            <div>
-              <label>Member power / role</label>
-              <input data-k="members.${i}.specialty" placeholder="healing / education / protection / strategy" />
-            </div>
-            <div>
-              <label>Signature item</label>
-              <input data-k="members.${i}.item" placeholder="flower charm / speaker / talisman / drink vial" />
-            </div>
-          </div>
-
-          <label>Bio (short)</label>
-          <textarea data-k="members.${i}.bio" placeholder="short member profile"></textarea>
-
-          <label>Visual motif</label>
-          <input data-k="members.${i}.motif" placeholder="flower / summer glow / guardian fire / etc." />
-        </div>
-      `;
-    }
-
-    function addMember(){
-      if(memberCount >= 5) return alert("Max 5 members.");
-      const i = memberCount;
-      membersWrap.insertAdjacentHTML("beforeend", memberTemplate(i));
-      memberCount++;
-    }
-
-    function removeMember(){
-      if(memberCount <= 0) return;
-      const last = membersWrap.querySelector(`[data-member="${memberCount-1}"]`);
-      if(last) last.remove();
-      memberCount--;
-    }
-
-    addMemberBtn.addEventListener("click", addMember);
-    removeMemberBtn.addEventListener("click", removeMember);
-
-    const STORAGE_KEY = "kpop_demon_hunters_portfolio_iviewprofein_v2";
-
-    const groupNameInput = document.getElementById("groupName");
-    const conceptPitch = document.getElementById("conceptPitch");
-    const groupNameDisplay = document.getElementById("groupNameDisplay");
-    const conceptDisplay = document.getElementById("conceptDisplay");
-
-    function setTopPreview(){
-      groupNameDisplay.textContent = groupNameInput.value?.trim() || "IViewProfein";
-      conceptDisplay.textContent = conceptPitch.value?.trim() || "A demon-hunting girl group inspired by ibuprofen, using music and performance to reduce human stress and fight pressure, inequality, and emotional pain.";
-    }
-
-    groupNameInput.addEventListener("input", setTopPreview);
-    conceptPitch.addEventListener("input", setTopPreview);
-
-    function getByKey(key){
-      const el = document.querySelector(`[data-k="${key}"]`);
-      return el ? el.value : "";
-    }
-
-    function setByKey(key, value){
-      const el = document.querySelector(`[data-k="${key}"]`);
-      if(el) el.value = value ?? "";
-    }
+    const STORAGE_KEY = "iviewprofein_site_v3";
 
     function collectData(){
-      const data = {
+      return {
         groupName: document.getElementById("groupName").value,
         logoIdea: document.getElementById("logoIdea").value,
         conceptKeywords: document.getElementById("conceptKeywords").value,
         conceptPitch: document.getElementById("conceptPitch").value,
-        creatures: {
-          list: document.getElementById("creatureList").value,
-          finalBoss: document.getElementById("finalBoss").value,
-          why: document.getElementById("creatureWhy").value
-        },
-        story: {
-          mission: document.getElementById("mission").value,
-          arc: document.getElementById("storyArc").value,
-          rules: document.getElementById("worldRules").value
-        },
-        song: {
-          title: document.getElementById("songTitle").value,
-          genre: document.getElementById("songGenre").value,
-          theme: document.getElementById("songTheme").value,
-          stageLook: document.getElementById("stageLook").value,
-          mvConcept: document.getElementById("mvConcept").value
-        },
-        visuals: {
-          palette: document.getElementById("palette").value,
-          symbols: document.getElementById("symbols").value,
-          costumes: document.getElementById("costumes").value,
-          props: document.getElementById("props").value,
-          branding: document.getElementById("branding").value
-        },
-        members: []
+        finalBoss: document.getElementById("finalBoss").value,
+        creatureList: document.getElementById("creatureList").value,
+        creatureWhy: document.getElementById("creatureWhy").value,
+        mission: document.getElementById("mission").value,
+        storyArc: document.getElementById("storyArc").value,
+        worldRules: document.getElementById("worldRules").value,
+        songTitle: document.getElementById("songTitle").value,
+        songGenre: document.getElementById("songGenre").value,
+        songTheme: document.getElementById("songTheme").value,
+        stageLook: document.getElementById("stageLook").value,
+        mvConcept: document.getElementById("mvConcept").value,
+        palette: document.getElementById("palette").value,
+        symbols: document.getElementById("symbols").value,
+        costumes: document.getElementById("costumes").value,
+        props: document.getElementById("props").value,
+        branding: document.getElementById("branding").value
       };
+    }
 
-      for(let i=0;i<memberCount;i++){
-        data.members.push({
-          stageName: getByKey(`members.${i}.stageName`),
-          position: getByKey(`members.${i}.position`),
-          specialty: getByKey(`members.${i}.specialty`),
-          item: getByKey(`members.${i}.item`),
-          bio: getByKey(`members.${i}.bio`),
-          motif: getByKey(`members.${i}.motif`)
-        });
+    function loadData(data){
+      if(!data) return;
+      for (const key in data){
+        const el = document.getElementById(key);
+        if(el) el.value = data[key];
       }
-
-      return data;
     }
 
-    function save(){
-      const data = collectData();
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    document.getElementById("btnSave").addEventListener("click", () => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(collectData()));
       alert("Saved to this browser.");
-    }
+    });
 
-    function load(){
+    document.getElementById("btnLoad").addEventListener("click", () => {
       const raw = localStorage.getItem(STORAGE_KEY);
       if(!raw) return alert("No saved data found yet.");
-      const data = JSON.parse(raw);
-
-      document.getElementById("groupName").value = data.groupName || "";
-      document.getElementById("logoIdea").value = data.logoIdea || "";
-      document.getElementById("conceptKeywords").value = data.conceptKeywords || "";
-      document.getElementById("conceptPitch").value = data.conceptPitch || "";
-
-      document.getElementById("creatureList").value = data.creatures?.list || "";
-      document.getElementById("finalBoss").value = data.creatures?.finalBoss || "";
-      document.getElementById("creatureWhy").value = data.creatures?.why || "";
-
-      document.getElementById("mission").value = data.story?.mission || "";
-      document.getElementById("storyArc").value = data.story?.arc || "";
-      document.getElementById("worldRules").value = data.story?.rules || "";
-
-      document.getElementById("songTitle").value = data.song?.title || "";
-      document.getElementById("songGenre").value = data.song?.genre || "";
-      document.getElementById("songTheme").value = data.song?.theme || "";
-      document.getElementById("stageLook").value = data.song?.stageLook || "";
-      document.getElementById("mvConcept").value = data.song?.mvConcept || "";
-
-      document.getElementById("palette").value = data.visuals?.palette || "";
-      document.getElementById("symbols").value = data.visuals?.symbols || "";
-      document.getElementById("costumes").value = data.visuals?.costumes || "";
-      document.getElementById("props").value = data.visuals?.props || "";
-      document.getElementById("branding").value = data.visuals?.branding || "";
-
-      membersWrap.innerHTML = "";
-      memberCount = 0;
-      const m = Array.isArray(data.members) ? data.members : [];
-      const targetMembers = Math.max(3, Math.min(5, m.length || 3));
-      for(let i=0;i<targetMembers;i++) addMember();
-      for(let i=0;i<Math.min(m.length, memberCount);i++){
-        setByKey(`members.${i}.stageName`, m[i].stageName);
-        setByKey(`members.${i}.position`, m[i].position);
-        setByKey(`members.${i}.specialty`, m[i].specialty);
-        setByKey(`members.${i}.item`, m[i].item);
-        setByKey(`members.${i}.bio`, m[i].bio);
-        setByKey(`members.${i}.motif`, m[i].motif);
-      }
-
-      setTopPreview();
+      loadData(JSON.parse(raw));
       alert("Loaded.");
-    }
+    });
 
-    function exportJSON(){
-      const data = collectData();
-      const blob = new Blob([JSON.stringify(data, null, 2)], {type:"application/json"});
+    document.getElementById("btnExport").addEventListener("click", () => {
+      const blob = new Blob([JSON.stringify(collectData(), null, 2)], {type:"application/json"});
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
       a.download = "iviewprofein-portfolio.json";
       a.click();
       URL.revokeObjectURL(url);
-    }
-
-    document.getElementById("btnSave").addEventListener("click", save);
-    document.getElementById("btnLoad").addEventListener("click", load);
-    document.getElementById("btnExport").addEventListener("click", exportJSON);
-
-    const starterData = {
-      members: [
-        {
-          stageName: "Ivy",
-          position: "Maknae",
-          specialty: "Breaking pressure-based systems",
-          item: "Study planner turned talisman",
-          bio: "Ivy represents Han. She carries the pain of intense academic pressure and believes grades are not everything. She fights systems that judge people only by university status and wants to eliminate unfair pay gaps based on educational background. Her parents kept her at home, so her story is also about breaking control and reclaiming freedom.",
-          motif: "Han, restrained light, blooming strength"
-        },
-        {
-          stageName: "Promise",
-          position: "Emotional core / supporter",
-          specialty: "Healing hearts and restoring trust",
-          item: "Mugunghwa charm",
-          bio: "Promise represents Jeong. She is the warm heart of the group and helps people feel seen, supported, and emotionally safe. Her power is rooted in care, comfort, and connection.",
-          motif: "Jeong, warmth, flower glow"
-        },
-        {
-          stageName: "TBD",
-          position: "Ambassador / educator",
-          specialty: "Education, awareness, supernatural protection",
-          item: "Guardian seal",
-          bio: "This member represents Heung and serves as the group’s ambassador, educating others and spreading awareness. She is connected to the Haechi, giving her a supernatural protective role and an uplifting, spirited energy.",
-          motif: "Heung, Haechi fire, guardian energy"
-        }
-      ]
-    };
-
-    function applyStarterData(){
-      for(let i=0;i<3;i++) addMember();
-      starterData.members.forEach((m, i) => {
-        setByKey(`members.${i}.stageName`, m.stageName);
-        setByKey(`members.${i}.position`, m.position);
-        setByKey(`members.${i}.specialty`, m.specialty);
-        setByKey(`members.${i}.item`, m.item);
-        setByKey(`members.${i}.bio`, m.bio);
-        setByKey(`members.${i}.motif`, m.motif);
-      });
-    }
-
-    applyStarterData();
-    setTopPreview();
+    });
   </script>
 </body>
 </html>
