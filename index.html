@@ -256,7 +256,7 @@
       background: rgba(255,255,255,.05);
       border-radius: 18px;
       padding: 14px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .memberHeader{
@@ -265,6 +265,22 @@
       justify-content:space-between;
       gap:12px;
       margin-bottom:12px;
+    }
+
+    .memberTitleRow{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .memberHeadshot{
+      width:72px;
+      height:72px;
+      object-fit:cover;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.2);
+      flex: 0 0 auto;
     }
 
     .memberHeader h3{
@@ -276,6 +292,14 @@
       color: var(--muted);
       font-size: 13px;
       margin-top:4px;
+    }
+
+    .memberProfile{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:16px;
+      align-items:start;
+      margin-top: 14px;
     }
 
     .memberInstrument{
@@ -321,7 +345,7 @@
   <div class="wrap">
     <header class="top">
       <div class="brand">
-        <img src="logo.jpg" alt="IViewProfein logo" class="logoImage">
+        <img src="flower.jpg" alt="IViewProfein logo" class="logoImage">
         <div class="title">
           <h1>IViewProfein</h1>
           <p>
@@ -370,7 +394,7 @@
           <textarea id="conceptPitch">IViewProfein is a healing-themed demon-hunting girl group that protects people by fighting stress-born creatures and social pressure through music, symbolism, and performance.</textarea>
 
           <p class="small">
-            Put your logo file in the same folder and name it <strong>logo.jpg</strong>.
+            Logo file name: <strong>flower.jpg</strong>
           </p>
         </div>
       </div>
@@ -398,90 +422,111 @@
 
           <div class="memberCard">
             <div class="memberHeader">
-              <div>
-                <h3>Ivy</h3>
-                <div class="memberSub">Maknae • Represents Han</div>
+              <div class="memberTitleRow">
+                <img src="ivy.jpg" alt="Ivy portrait" class="memberHeadshot">
+                <div>
+                  <h3>Ivy</h3>
+                  <div class="memberSub">Member 1 • Maknae • Represents Han</div>
+                </div>
               </div>
               <div class="chip">Member 1</div>
             </div>
 
-            <label>Position</label>
-            <input value="Maknae" />
+            <div class="memberProfile">
+              <div>
+                <label>Position</label>
+                <input value="Maknae" />
 
-            <label>Member power / role</label>
-            <input value="Breaking pressure-based systems and speaking against academic inequality" />
+                <label>Member power / role</label>
+                <input value="Breaking pressure-based systems and speaking against academic inequality" />
 
-            <label>Instrument</label>
-            <input value="TBD" />
+                <label>Instrument</label>
+                <input value="Pipa / Lute-style string instrument" />
 
-            <label>Bio</label>
-            <textarea>Ivy represents Han. She carries the pain of extreme academic pressure and believes grades are not everything. She challenges systems that judge people by university name and wants to eliminate unfair pay gaps based on educational background. Her parents kept her at home, so her story is also about breaking control and reclaiming freedom.</textarea>
+                <label>Bio</label>
+                <textarea>Ivy represents Han. She carries the pain of extreme academic pressure and believes grades are not everything. She challenges systems that judge people by university name and wants to eliminate unfair pay gaps based on educational background. Her parents kept her at home, so her story is also about breaking control and reclaiming freedom.</textarea>
+              </div>
+            </div>
 
             <div class="memberInstrument">
               <img src="ivy-instrument.jpg" alt="Ivy instrument image" class="instrumentImg">
               <div>
-                <label>Instrument image note</label>
-                <textarea>Put Ivy’s instrument image here. If you decide her instrument later, replace the file named ivy-instrument.jpg with the correct picture.</textarea>
+                <label>Instrument note</label>
+                <textarea>Ivy’s instrument image is placed here. This is the instrument assigned to Member 1 based on the picture you gave.</textarea>
               </div>
             </div>
           </div>
 
           <div class="memberCard">
             <div class="memberHeader">
-              <div>
-                <h3>Promise</h3>
-                <div class="memberSub">Represents Jeong</div>
+              <div class="memberTitleRow">
+                <img src="promise.jpg" alt="Promise portrait" class="memberHeadshot">
+                <div>
+                  <h3>Promise</h3>
+                  <div class="memberSub">Member 2 • Represents Jeong</div>
+                </div>
               </div>
               <div class="chip">Member 2</div>
             </div>
 
-            <label>Position</label>
-            <input value="Emotional core / supporter" />
+            <div class="memberProfile">
+              <div>
+                <label>Position</label>
+                <input value="Emotional core / supporter" />
 
-            <label>Member power / role</label>
-            <input value="Healing hearts and restoring trust" />
+                <label>Member power / role</label>
+                <input value="Healing hearts and restoring trust" />
 
-            <label>Instrument</label>
-            <input value="Gayageum" />
+                <label>Instrument</label>
+                <input value="Gayageum" />
 
-            <label>Bio</label>
-            <textarea>Promise represents Jeong. She is the warm heart of the group and helps people feel seen, supported, and emotionally safe. Her power comes from kindness, care, and emotional connection.</textarea>
+                <label>Bio</label>
+                <textarea>Promise represents Jeong. She is the warm heart of the group and helps people feel seen, supported, and emotionally safe. Her power comes from kindness, care, and emotional connection.</textarea>
+              </div>
+            </div>
 
             <div class="memberInstrument">
               <img src="promise-instrument.jpg" alt="Promise instrument image" class="instrumentImg">
               <div>
-                <label>Instrument image note</label>
-                <textarea>Promise’s instrument is the Gayageum. Put the Gayageum image file here as promise-instrument.jpg.</textarea>
+                <label>Instrument note</label>
+                <textarea>Promise’s instrument is the Gayageum. This image is the one assigned to Member 2.</textarea>
               </div>
             </div>
           </div>
 
           <div class="memberCard">
             <div class="memberHeader">
-              <div>
-                <h3>Member 3</h3>
-                <div class="memberSub">Represents Heung</div>
+              <div class="memberTitleRow">
+                <img src="fei.jpg" alt="Fei portrait" class="memberHeadshot">
+                <div>
+                  <h3>Fei</h3>
+                  <div class="memberSub">Member 3 • Represents Heung</div>
+                </div>
               </div>
               <div class="chip">Member 3</div>
             </div>
 
-            <label>Position</label>
-            <input value="Ambassador / educator" />
+            <div class="memberProfile">
+              <div>
+                <label>Position</label>
+                <input value="Ambassador / educator" />
 
-            <label>Member power / role</label>
-            <input value="Education, awareness, supernatural protection" />
+                <label>Member power / role</label>
+                <input value="Education, awareness, supernatural protection" />
 
-            <label>Instrument</label>
-            <input value="Janggu" />
+                <label>Instrument</label>
+                <input value="Janggu" />
 
-            <label>Bio</label>
-            <textarea>This member represents Heung and acts as the group’s ambassador. She educates others, spreads awareness, and is connected to the Haechi, giving her a supernatural guardian presence and uplifting energy.</textarea>
+                <label>Bio</label>
+                <textarea>Fei represents Heung and acts as the group’s ambassador. She educates others, spreads awareness, and is connected to the Haechi, giving her a supernatural guardian presence and uplifting energy.</textarea>
+              </div>
+            </div>
 
             <div class="memberInstrument">
-              <img src="heung-instrument.jpg" alt="Member 3 instrument image" class="instrumentImg">
+              <img src="fei-instrument.jpg" alt="Fei instrument image" class="instrumentImg">
               <div>
-                <label>Instrument image note</label>
-                <textarea>This member’s instrument is the Janggu. Put the Janggu image file here as heung-instrument.jpg.</textarea>
+                <label>Instrument note</label>
+                <textarea>Fei’s instrument image is placed here. File name: fei-instrument.jpg.</textarea>
               </div>
             </div>
           </div>
@@ -491,16 +536,20 @@
 
       <aside class="card">
         <div class="cardHead">
-          <h2>Instrument Notes</h2>
-          <span class="chip">Images</span>
+          <h2>Image File Names</h2>
+          <span class="chip">Files</span>
         </div>
         <div class="cardBody">
           <div class="small">
-            Right now the website uses three image files for instruments:
+            Member photos:
+            <br><strong>ivy.jpg</strong>
+            <br><strong>promise.jpg</strong>
+            <br><strong>fei.jpg</strong>
             <br><br>
-            <strong>ivy-instrument.jpg</strong><br>
-            <strong>promise-instrument.jpg</strong><br>
-            <strong>heung-instrument.jpg</strong>
+            Instrument photos:
+            <br><strong>ivy-instrument.jpg</strong>
+            <br><strong>promise-instrument.jpg</strong>
+            <br><strong>fei-instrument.jpg</strong>
           </div>
         </div>
       </aside>
@@ -526,7 +575,7 @@
           <img src="creature.jpg" alt="Creature concept image" class="featureImage">
 
           <p class="small">
-            Put your creature image in the same folder and name it <strong>creature.jpg</strong>.
+            Creature file name: <strong>creature.jpg</strong>
           </p>
         </div>
       </div>
@@ -538,7 +587,7 @@
         </div>
         <div class="cardBody">
           <div class="small">
-            If you want, I can generate an Imugi-style creature image next. Then you can save it as <strong>creature.jpg</strong> and use it here.
+            If you still need it, I can generate an Imugi creature image for you.
           </div>
         </div>
       </aside>
@@ -621,7 +670,7 @@ IViewProfein make it better today</textarea>
         </div>
         <div class="cardBody">
           <div class="small">
-            The Song / MV section uses <strong>OIP.jpg</strong> as its background image. Keep that file in the same folder as index.html.
+            The Song / MV section uses <strong>OIP.jpg</strong> as its background image.
           </div>
         </div>
       </aside>
@@ -658,26 +707,27 @@ IViewProfein make it better today</textarea>
 
       <aside class="card">
         <div class="cardHead">
-          <h2>Image Files Used</h2>
+          <h2>All Image Files Used</h2>
           <span class="chip">Files</span>
         </div>
         <div class="cardBody">
           <div class="small">
-            This website currently expects these files in the same folder:
-            <br><br>
-            <strong>logo.jpg</strong><br>
+            <strong>flower.jpg</strong><br>
             <strong>creature.jpg</strong><br>
             <strong>OIP.jpg</strong><br>
+            <strong>ivy.jpg</strong><br>
+            <strong>promise.jpg</strong><br>
+            <strong>fei.jpg</strong><br>
             <strong>ivy-instrument.jpg</strong><br>
             <strong>promise-instrument.jpg</strong><br>
-            <strong>heung-instrument.jpg</strong>
+            <strong>fei-instrument.jpg</strong>
           </div>
         </div>
       </aside>
     </section>
 
     <div class="footerNote">
-      IViewProfein portfolio template • Edit in BBEdit • Keep all image files in the same folder as index.html
+      IViewProfein portfolio template • Keep all image files in the same folder as index.html
     </div>
   </div>
 
@@ -702,7 +752,7 @@ IViewProfein make it better today</textarea>
       });
     });
 
-    const STORAGE_KEY = "iviewprofein_site_v3";
+    const STORAGE_KEY = "iviewprofein_site_v5";
 
     function collectData(){
       return {
